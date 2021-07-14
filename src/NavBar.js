@@ -5,7 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import CartWidget from './CartWidget';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    marginRight: theme.spacing(2),
   },
 }));
 
@@ -26,14 +28,16 @@ function NavBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
+            <Typography variant="h6" className={classes.title}>
+                logotipo
+            </Typography>
           <Button color="inherit">Cervezas</Button>
           <Button color="inherit">WhisKys</Button>
           <Button color="inherit">Vinos</Button>
           <Button color="inherit">Fernet</Button>
           <Button color="inherit">Otros</Button>
+
+          <CartWidget/>          
         </Toolbar>
       </AppBar>
     </div>

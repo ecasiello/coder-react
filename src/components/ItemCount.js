@@ -1,9 +1,6 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
-import {useState} from 'react'
+import {React,useState} from 'react'
+import {ButtonGroup,Button,Container} from '@material-ui/core';
+
 
 
 
@@ -28,8 +25,9 @@ function ItemCount({stock , initial, onAdd }) {
     return (
     
       <Container>
-        <p>{quantity}</p>
+        
         <ButtonGroup disableElevation variant="contained" color="primary" >
+            <p>{quantity}</p>
             <Button onClick={removeButton}>-</Button>
             <Button onClick={addButton}>+</Button>
         </ButtonGroup>

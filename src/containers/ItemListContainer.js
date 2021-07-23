@@ -1,5 +1,5 @@
 import {React, useEffect,useState} from 'react';
-import ItemList from './ItemList';
+import ItemList from '../components/ItemList';
 
 
 function ItemListContainer() {
@@ -38,7 +38,7 @@ function ItemListContainer() {
         .catch(err =>{console.log('error')})
       
     },[])
-    console.log(productList)
+    //console.log(productList)
     
     return (
       

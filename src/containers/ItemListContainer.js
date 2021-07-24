@@ -43,7 +43,6 @@ function ItemListContainer() {
     return (
       
       <div>
-        
         <ItemList data={productList}/>
       </div>
       

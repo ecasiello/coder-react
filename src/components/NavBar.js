@@ -3,7 +3,33 @@ import { makeStyles,AppBar,Toolbar,Typography,Button,Grid } from '@material-ui/c
 import CartWidget from './CartWidget';
 import { Link,NavLink } from 'react-router-dom';
 
-
+const categories= [
+  {
+    "id":"a",
+    "title" : "Cervezas",
+    "link":"/cerveza"
+  },
+  {
+    "id":"b",
+    "title" : "Whiskys",
+    "link":"/whiskys"
+  },
+  {
+    "id":"c",
+    "title" : "Vinos",
+    "link":"/vinos"
+  },
+  {
+    "id":"d",
+    "title" : "Fernet",
+    "link":"/fernet"
+  },
+  {
+    "id":"e",
+    "title" : "Otros",
+    "link":"/otros"
+  }
+]
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,11 +61,9 @@ function NavBar() {
               </Link>
             </Grid>
             <Grid item>
-                <NavLink to="/cerveza"><Button color="inherit">Cervezas</Button></NavLink>
-                <NavLink to="/whiskys"><Button color="inherit">Whiskys</Button></NavLink>
-                <NavLink to="/vinos"><Button color="inherit">Vinos</Button></NavLink>
-                <NavLink to="/fernet"><Button color="inherit">Fernet</Button></NavLink>
-                <NavLink to="/otros"><Button color="inherit">Otros</Button></NavLink>
+                {categories.map(category =>(
+                <Button color="inherit" key={category.id}><NavLink to={category.link}>{category.title}</NavLink></Button>
+                ))}
             </Grid>
             <Grid item>
                 <CartWidget/>

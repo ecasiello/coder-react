@@ -9,6 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
+import {Link} from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -45,6 +46,7 @@ function Item({data}) {
         
     <Grid item key={data.id}>
         <Card className={classes.root}>
+            <Link to={`/${data.category}/${data.title}/${data.id}`}>
             <CardHeader
               title={data.title}
             />
@@ -52,6 +54,7 @@ function Item({data}) {
               className={classes.media}
               image={data.picturUrl}
             />
+            </Link>
             <CardContent>
               <Typography variant="title" color="textPrimary" component="h3">
                 {data.price}

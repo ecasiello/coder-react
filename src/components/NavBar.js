@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles,AppBar,Toolbar,Typography,Button,Grid } from '@material-ui/core';
 import CartWidget from './CartWidget';
+import { Link,NavLink } from 'react-router-dom';
 
 
 
@@ -27,16 +28,18 @@ function NavBar() {
         <Toolbar>
           <Grid container direction="row" justifyContent="space-between" alignItems="center">
             <Grid item>
+              <Link to="/">
                 <Typography variant="h6" className={classes.title}>
-                      logotipo
+                      Xbebidas
                 </Typography>
+              </Link>
             </Grid>
             <Grid item>
-                <Button color="inherit">Cervezas</Button>
-                <Button color="inherit">WhisKys</Button>
-                <Button color="inherit">Vinos</Button>
-                <Button color="inherit">Fernet</Button>
-                <Button color="inherit">Otros</Button>
+                <NavLink to="/cerveza"><Button color="inherit">Cervezas</Button></NavLink>
+                <NavLink to="/whiskys"><Button color="inherit">Whiskys</Button></NavLink>
+                <NavLink to="/vinos"><Button color="inherit">Vinos</Button></NavLink>
+                <NavLink to="/fernet"><Button color="inherit">Fernet</Button></NavLink>
+                <NavLink to="/otros"><Button color="inherit">Otros</Button></NavLink>
             </Grid>
             <Grid item>
                 <CartWidget/>

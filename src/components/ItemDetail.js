@@ -18,9 +18,10 @@ function ItemDetail({product}) {
             setQuantity(quantity - 1)
         }
     }
-    const handleCount = () =>{
+    const handleCount = (e) =>{
         setQuantity(quantity)
         console.log(quantity)
+        e.stopPropagation()
         
         
     }
@@ -38,8 +39,8 @@ function ItemDetail({product}) {
                 <h1>Nombre :{item.title}</h1>
                 <h2>Precio :{item.price}</h2>
                 { quantity!=0
-                ?    <ItemCount add={addButton} remove={removeButton} onAdd={handleCount} quantity={quantity}/>
-                :    <button>Terminar Compra</button>
+                ?    <button>Terminar Compra</button>
+                :    <ItemCount add={addButton} remove={removeButton} onAdd={handleCount} quantity={quantity}/>
                 }
             </Grid>
           </Grid>          

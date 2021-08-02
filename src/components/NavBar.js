@@ -3,6 +3,8 @@ import { makeStyles,AppBar,Toolbar,Typography,Button,Grid } from '@material-ui/c
 import CartWidget from './CartWidget';
 import { Link,NavLink } from 'react-router-dom';
 
+
+
 const categories= [
   {
     "id":"a",
@@ -43,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   
+  
 }));
 
 function NavBar() {
@@ -54,15 +57,13 @@ function NavBar() {
         <Toolbar>
           <Grid container direction="row" justifyContent="space-between" alignItems="center">
             <Grid item>
-              <Link to="/">
-                <Typography variant="h6" className={classes.title}>
+                <Typography component={Link} to="/" variant="h6" className={classes.title}>
                       Xbebidas
                 </Typography>
-              </Link>
             </Grid>
             <Grid item>
                 {categories.map(category =>(
-                <Button color="inherit" key={category.id}><NavLink to={category.link}>{category.title}</NavLink></Button>
+                <Button component={NavLink} to={category.link} color="inherit" key={category.id}>{category.title}</Button>
                 ))}
             </Grid>
             <Grid item>

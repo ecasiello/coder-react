@@ -1,11 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Grid} from '@material-ui/core';
 import ItemCount from './ItemCount';
 
 function ItemDetail({product}) {
-    const count = (quantity)=>{
-        console.log(`Has agregado ${quantity} ${product.title} a tu carrito!!`)
-      }
+    const [quantity,setQuantity]=useState(1)
+    const stock=4
+    const initial=1
+    
+
+    const addButton= () =>{
+        if(quantity < stock){
+            setQuantity(quantity + 1)
+        }
+    }
+    const removeButton= () =>{
+        if(quantity > initial){
+            setQuantity(quantity - 1)
+        }
+    }
+    const handleCount = () =>{
+        setQuantity(quantity)
+        console.log(quantity)
+        
+        
+    }
+     
+      
     return(
         <div>
             {product.map(item => (
@@ -17,7 +37,10 @@ function ItemDetail({product}) {
             <Grid item>
                 <h1>Nombre :{item.title}</h1>
                 <h2>Precio :{item.price}</h2>
-                <ItemCount stock={4} initial={1} onAdd={count}/>
+                { quantity!=0
+                ?    <ItemCount add={addButton} remove={removeButton} onAdd={handleCount} quantity={quantity}/>
+                :    <button>Terminar Compra</button>
+                }
             </Grid>
           </Grid>          
             

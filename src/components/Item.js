@@ -14,26 +14,20 @@ import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
-    margin: 20,
+    maxWidth: 365,
+    margin: 45,
+  },
+  card: {
+    maxWidth: 190,
   },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  avatar: {
-    backgroundColor: red[500],
-  },
+  header:{
+    textAlign: 'center',
+    textDecoration: 'none',
+  }
 }));
 
 function Item({data}) {
@@ -44,23 +38,23 @@ function Item({data}) {
     
     return (
         
-    <Grid item key={data.id}>
-        <Card className={classes.root}>
-            <Link to={`/${data.category}/${data.title}/${data.id}`}>
-            <CardHeader
-              title={data.title}
-            />
-            <CardMedia
+    <Grid item key={data.id} className={classes.root}>
+        <Card className={classes.card}>
+            <CardMedia component={Link} to={`/${data.category}/${data.title}/${data.id}`}
               className={classes.media}
               image={data.picturUrl}
             />
-            </Link>
+            <CardHeader component={Link} to={`/${data.category}/${data.title}/${data.id}`}
+              className={classes.header}
+              title={data.title}
+            />
+            
             <CardContent>
               <Typography variant="title" color="textPrimary" component="h3">
                 {data.price}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-              {data.description}
+                {data.description}
               </Typography>
             </CardContent>
             <CardActions>

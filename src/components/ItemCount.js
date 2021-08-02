@@ -4,8 +4,8 @@ import {ButtonGroup,Button,Container} from '@material-ui/core';
 
 
 
-function ItemCount({stock , initial, onAdd }) {
-    const [quantity,setQuantity] = useState(1)
+function ItemCount({stock , initial, onAdd, add, remove,quantity }) {
+    /*const [quantity,setQuantity] = useState(1)
     const addButton= () =>{
         if(quantity < stock){
             setQuantity(quantity + 1)
@@ -20,19 +20,19 @@ function ItemCount({stock , initial, onAdd }) {
     
     const handleCount = () =>{
         onAdd(quantity)
-    }
+    }*/
         
     return (
     
       <Container>
         
-        <ButtonGroup disableElevation variant="contained" color="primary" >
-            <p>{quantity}</p>
-            <Button onClick={removeButton}>-</Button>
-            <Button onClick={addButton}>+</Button>
+        <ButtonGroup disableElevation variant="contained" color="primary" style={{display:'flex',justifyContent:'center',alignContent:'space-between',maxHeight:'45px'}} >
+            <Button onClick={remove}>-</Button>
+            <p style={{textAlign:'center'}} >{quantity}</p>
+            <Button  onClick={add}>+</Button>
         </ButtonGroup>
-        <Button variant="contained" color="primary" onClick={handleCount}>
-            Agregar al carrito
+        <Button variant="contained" color="primary" onClick={onAdd}>
+            Comprar !!!!
         </Button>
       </Container>
     );

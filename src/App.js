@@ -5,6 +5,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import ProductDetail from "./pages/ProductDetail";
 import ItemListContainer from "./containers/ItemListContainer";
 import ItemDetailContainer from "./containers/ItemDetailContainer";
+import Cart from "./components/Cart"
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route exact path="/:categoryId/:productTitle/:productId">
             <ItemDetailContainer />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
           </Route>
         </Switch>
 

@@ -1,15 +1,15 @@
 import React from 'react'
+import { useCartContext } from './CartContext';
 
 
 
 function Cart() {
          
+    const { cart } = useCartContext();
     
-    
-      
     return(
         <div>
-           <h1>CART</h1>
+            <h1>Carrito</h1>
         </div>
     )
 }

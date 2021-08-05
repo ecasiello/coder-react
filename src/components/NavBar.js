@@ -53,7 +53,7 @@ function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <Grid container direction="row" justifyContent="space-between" alignItems="center">
             <Grid item>
@@ -67,7 +67,9 @@ function NavBar() {
                 ))}
             </Grid>
             <Grid item>
-                <CartWidget/>
+                  <Link to="/cart">
+                    <CartWidget />
+                  </Link>
             </Grid>
           </Grid>          
         </Toolbar>

@@ -14,12 +14,27 @@ function ItemDetail({product}) {
 
 
     const addButton= (count) =>{
+    
         setCounter(count)
         setAddCar(false)
-        setCart([...cart,{product,count}])
+
+        for (let i=0; i<=cart.length; i++){
+            const index = cart.findIndex(item => product[0].id === cart[i].item[0].id)
+            if(index === -1){
+                setCart([...cart,{item:product,quantity:count}])
+            }else{
+                const newQuantity= cart[index].quantity + count
+                const oldList = cart.filter(old=> cart[i].item[0].id !== product[i].id)
+                setCart([...oldList,{item: product, quantity: newQuantity}])
+            } ; 
+            }
+        
         
     }
     console.log(cart)
+    //console.log(cart[0].item[0].id)
+
+    
     
     
     
@@ -35,13 +50,13 @@ function ItemDetail({product}) {
             <Grid item>
                 <h1>Nombre :{item.title}</h1>
                 <h2>Precio :{item.price}</h2>
-                {addCart
-                ? <ItemCount stock={4} initial={1} onAdd={addButton}/>
-                :
+                
+                 <ItemCount stock={4} initial={1} onAdd={addButton}/>
+                
                     <Button component={NavLink} to='/cart' variant="contained" color="secondary" >
                             Terminar Compra
                     </Button>
-                }
+                
                 
             </Grid>
           </Grid> 

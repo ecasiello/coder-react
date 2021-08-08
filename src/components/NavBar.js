@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles,AppBar,Toolbar,Typography,Button,Grid } from '@material-ui/core';
 import CartWidget from './CartWidget';
 import { Link,NavLink } from 'react-router-dom';
+import { useCartContext } from './CartContext';
 
 
 
@@ -49,11 +50,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function NavBar() {
+  const { cart, setCart } = useCartContext();
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed">
+      <AppBar position="sticky">
         <Toolbar>
           <Grid container direction="row" justifyContent="space-between" alignItems="center">
             <Grid item>
@@ -66,11 +68,14 @@ function NavBar() {
                 <Button component={NavLink} to={category.link} color="inherit" key={category.id}>{category.title}</Button>
                 ))}
             </Grid>
-            <Grid item>
+            { cart.length <=0
+            ? <div></div>
+            :<Grid item>
                   <Link to="/cart">
                     <CartWidget />
                   </Link>
             </Grid>
+            }
           </Grid>          
         </Toolbar>
       </AppBar>

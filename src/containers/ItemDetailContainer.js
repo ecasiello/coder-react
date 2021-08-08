@@ -13,7 +13,7 @@ function ItemDetailContainer() {
                        
             .then((res)=>setProduct(res.filter(item =>item.id==productId)))
             
-        },[productId])
+        },productId)
         
     return (
         

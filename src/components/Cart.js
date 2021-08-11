@@ -25,7 +25,7 @@ function Cart() {
     
     return(
         cart.length <=0 ?
-        <div><h1>El carro esta vacio</h1><h1>El carro esta vacio</h1><h1>El carro esta vacio</h1><h1>El carro esta vacio</h1>
+        <div><h1>El carrito esta vacio</h1>
         <Link to='/'><button>Volver a la tienda</button></Link>
         </div>
         :<div>

@@ -38,6 +38,7 @@ function BasicTextFields() {
         if(buyer.email === buyer.emailConfirm){
             const bd = getFirestore()
             bd.collection('orders').add(order)
+            .then(resp=> alert(`Gracias por tu compra. Tu numero de orden es ${resp.id}`))
         }else{
             alert('Verifica tu email por favorcito')
         }

@@ -1,14 +1,14 @@
 import {React, useEffect,useState} from 'react';
 import { useCartContext } from './CartContext';
 import { Link,NavLink } from 'react-router-dom';
+import BasicTextFields from './BuyerForm';
 
 
 
 
 function Cart() {
-    
-    
-    const { cart, setCart } = useCartContext();
+       
+    const { cart, setCart } = useCartContext([]);
     console.log(cart)
 
     const removeProduct=()=>{
@@ -20,7 +20,8 @@ function Cart() {
     let totalPrice=0
     cart.forEach(element => {
         totalPrice += element.price*element.quantity
-      }); 
+      });
+
     
     
     return(
@@ -41,6 +42,8 @@ function Cart() {
             ))}
             </ul>
             <p>Total a pagar :{totalPrice}</p>
+
+            <BasicTextFields />
         </div>
 
         

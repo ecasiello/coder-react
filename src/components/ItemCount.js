@@ -1,5 +1,5 @@
 import {React,useState} from 'react'
-import {ButtonGroup,Button,Container} from '@material-ui/core';
+import {Button,Container,Box} from '@material-ui/core';
 
 
 
@@ -25,12 +25,11 @@ function ItemCount({stock , initial, onAdd }) {
     return (
     
       <Container>
-        
-        <ButtonGroup disableElevation variant="contained" color="primary" style={{display:'flex',justifyContent:'center',alignContent:'space-between',maxHeight:'40px'}} >
+        <Box width="40%" variant="contained" color="primary" style={{display:'flex',alignContent:'space-between',margin:'20px 0'}} >
             <Button onClick={removeButton}>-</Button>
-            <p style={{textAlign:'center'}} >{quantity}</p>
-            <Button onClick={addButton}>+</Button>
-        </ButtonGroup>
+            <p style={{textAlign:'center',minWidth:'30px'}}>{quantity}</p>
+            <Button variant="contained"  onClick={addButton}>+</Button>
+        </Box>
         <Button variant="contained" color="primary" onClick={handleCount}>
             Comprar !!!!
         </Button>

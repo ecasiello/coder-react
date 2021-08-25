@@ -1,25 +1,31 @@
 import {React, useEffect,useState} from 'react';
-import { getItem } from '../components/getItem';
 import ItemDetail from '../components/ItemDetail'
 import {useParams} from 'react-router-dom'
 import {getFirestore} from '../components/firebaseService'
+import Loader from '../components/Loader';
 
 
 function ItemDetailContainer() {
     const[product,setProduct]= useState([])
+    const[load,setLoad]= useState(true)
     const {productId} = useParams()
+    
+    
 
         useEffect(()=>{
             const bd= getFirestore()
             bd.collection('items').get()
             .then(resp =>resp.docs.map(item =>({...item.data(), id: item.id})))
             .then(resp => setProduct(resp.filter(item =>item.id===productId)))
-            
-        },productId)
+            .finally(()=>setLoad(false))
+        },[productId])
+        
+        
         
     return (
-        
-        <ItemDetail product={product} />
+        load?
+        <Loader />
+        :<ItemDetail product={product} />
         
     );
   }

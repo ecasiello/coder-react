@@ -10,7 +10,7 @@ function ItemList({data}) {
     
     return (
         
-            <Grid container direction="row" justifyContent="space-between" alignItems="center">
+            <Grid container direction="row" justifyContent="center" alignItems="center">
                 {data.map(product =>(
                 <Item key={product.id} data={product}/>
                 ))}

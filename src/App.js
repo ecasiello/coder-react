@@ -1,12 +1,11 @@
-import { Button } from "@material-ui/core";
 import NavBar from './components/NavBar';
 import Home from "./pages/Home";
 import {BrowserRouter, Switch, Route} from 'react-router-dom'; 
-import ProductDetail from "./pages/ProductDetail";
 import ItemListContainer from "./containers/ItemListContainer";
 import ItemDetailContainer from "./containers/ItemDetailContainer";
-import Cart from "./components/Cart"
 import CartContextProvider from './components/CartContext';
+import Checkout from './pages/Checkout';
+
 
 
 function App() {
@@ -19,7 +18,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/cart">
-            <Cart />
+            <Checkout />
           </Route>
           <Route exact path="/:categoryId">
             <ItemListContainer />

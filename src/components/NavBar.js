@@ -50,11 +50,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function NavBar() {
-  const { cart, setCart } = useCartContext();
+  const { cart } = useCartContext();
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
       <AppBar position="sticky">
         <Toolbar>
           <Grid container direction="row" justifyContent="space-between" alignItems="center">
@@ -79,7 +78,6 @@ function NavBar() {
           </Grid>          
         </Toolbar>
       </AppBar>
-    </div>
   );
 }
 

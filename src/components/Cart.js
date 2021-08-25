@@ -79,7 +79,7 @@ function Cart() {
                     </TableBody>   
                 </Table>
             </TableContainer>
-            <h4>Total: {totalPrice}</h4>
+            <h4 style={{textAlign:'center'}}>Total: {totalPrice}</h4>
            
               
         </div>

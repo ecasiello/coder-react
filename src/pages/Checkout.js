@@ -21,7 +21,7 @@ function Checkout() {
       <Cart />
       {cart.length===0 ? 
         <></>
-        :<Button variant='contained' color='primary' onClick={confirmed} >Finalizar compra</Button>
+        :<div style={{margin:'0 auto',display:'flex',justifyContent:'center'}}><Button variant='contained' color='primary' onClick={confirmed} >Finalizar compra</Button></div>
       }
       
       {confirm?
